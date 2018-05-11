@@ -1,0 +1,25 @@
+{
+  "name": "webpack-airbrake-private-sourcemaps",
+  "version": "1.0.0",
+  "description": "Webpack plugin to enable easy private sourcemaps uploading to Airbrake",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bk3/webpack-airbrake-private-sourcemaps.git"
+  },
+  "keywords": [
+    "Webpack",
+    "Airbrake",
+    "sourcemaps",
+    "plugin"
+  ],
+  "author": "Buck Kimbriel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bk3/webpack-airbrake-private-sourcemaps/issues"
+  },
+  "homepage": "https://github.com/bk3/webpack-airbrake-private-sourcemaps#readme"
+}
