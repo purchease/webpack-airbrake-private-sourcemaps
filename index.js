@@ -1,4 +1,5 @@
 const fs = require('fs');
+const request = require('request');
 
 /*
  * Airbrake extract plugin
