@@ -1,6 +1,6 @@
 {
   "name": "webpack-airbrake-private-sourcemaps",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Webpack plugin to enable easy private sourcemaps uploading to Airbrake",
   "main": "index.js",
   "scripts": {

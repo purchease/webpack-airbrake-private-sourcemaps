@@ -30,7 +30,7 @@ AirbrakePlugin.prototype.apply = function(compiler) {
                 console.log(`- will upload file: ${filePath}`);
             }
 
-            const airbrakeUrl = `https://airbrake.io/api/v4/projects/${projectid}/sourcemaps`;
+            const airbrakeUrl = `https://airbrake.io/api/v4/projects/${projectId}/sourcemaps`;
 
             const postData = {
                 headers: {
