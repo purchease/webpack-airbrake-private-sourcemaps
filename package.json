@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/bk3/webpack-airbrake-private-sourcemaps/issues"
   },
-  "homepage": "https://github.com/bk3/webpack-airbrake-private-sourcemaps#readme"
+  "homepage": "https://github.com/bk3/webpack-airbrake-private-sourcemaps#readme",
+  "dependencies": {
+    "request": "^2.85.0"
+  }
 }
