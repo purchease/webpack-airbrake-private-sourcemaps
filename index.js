@@ -31,7 +31,7 @@ AirbrakePlugin.prototype.apply = function(compiler) {
 
             const postData = {
                 headers: {
-                    'Authorization': `Bearer ${key}`,
+                    'Authorization': `Bearer ${projectKey}`,
                     'Content-Type': 'multipart/form-data'
                 },
                 formData: {
