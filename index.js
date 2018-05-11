@@ -17,7 +17,7 @@ AirbrakePlugin.prototype.apply = function(compiler) {
     /*
      * Get options values
      */
-    const { url, projectId, projectKey, host, logging } = this.options;
+    const { projectId, projectKey, host, logging } = this.options;
 
     /*
      * Upload file to sourcemaps
@@ -29,6 +29,8 @@ AirbrakePlugin.prototype.apply = function(compiler) {
             if (logging) {
                 console.log(`- will upload file: ${filePath}`);
             }
+
+            const airbrakeUrl = `https://airbrake.io/api/v4/projects/${projectid}/sourcemaps`;
 
             const postData = {
                 headers: {
@@ -42,14 +44,14 @@ AirbrakePlugin.prototype.apply = function(compiler) {
                 },
             };
 
-            request.post(url, postData, (err, httpResponse, body) => {
+            request.post(airbrakeUrl, postData, (err, httpResponse, body) => {
                 if (err) {
                     return console.error('Error: upload failed - ', err);
                 }
 
                 if (logging) {
                     console.log('--- uploaded file: ', filePath);
-                    console.log('posted to:', url);
+                    console.log('posted to:', airbrakeUrl);
                     console.log('post data:', postData);
                     console.log('Server responded with:', body);
                 }
@@ -79,15 +81,11 @@ AirbrakePlugin.prototype.apply = function(compiler) {
             console.error('- Sourcemaps web host is required');
         }
 
-        if (!url) {
-            console.error('- Airbrake project url is required');
-        }
-
         if (!directories || !directories.length) {
             console.error('- Sourcemap directories value is required');
         }
 
-        if (!projectId || !projectKey || !host || !url || !directories) {
+        if (!projectId || !projectKey || !host || !directories) {
             console.error('- All config values are required to upload airbrake sourcemaps');
         }
 
