@@ -8,6 +8,7 @@ const request = require('request');
  * - directories: array[string] - directories to scan for sourcemaps
  * - host: string - website url
  * - logging: boolean - enables logs
+ * - removeAfterUpload: boolean - removes files after uploading to airbrake
  */
 function AirbrakePlugin(options) {
     this.options = Object.assign({}, options);
@@ -17,7 +18,7 @@ AirbrakePlugin.prototype.apply = function(compiler) {
     /*
      * Get options values
      */
-    const { projectId, projectKey, host, logging } = this.options;
+    const { projectId, projectKey, host, logging, removeAfterUpload } = this.options;
 
     /*
      * Upload file to sourcemaps
@@ -54,6 +55,13 @@ AirbrakePlugin.prototype.apply = function(compiler) {
                     console.log('posted to:', airbrakeUrl);
                     console.log('post data:', postData);
                     console.log('Server responded with:', body);
+                }
+
+                if (removeAfterUpload) {
+                    fs.unlink(filePath, (err) => {
+                        if (err) throw err;
+                        console.log(`${filePath} was deleted`);
+                    });
                 }
             });
         } else if (logging) {
